@@ -3,152 +3,220 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2024 서울 vs 부산 주거 통계</title>
+    <title>서울-부산 주거 점유형태 통합 보고서</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
-        body { font-family: 'Noto Sans KR', sans-serif; }
-        .gradient-bg { background: linear-gradient(135deg, #f6f8fb 0%, #e9effd 100%); }
+        body { font-family: 'Noto Sans KR', sans-serif; scroll-behavior: smooth; }
+        .bg-custom-gradient { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
     </style>
 </head>
-<body class="gradient-bg min-h-screen p-4 md:p-8">
-    <div class="max-w-5xl mx-auto">
-        <!-- 헤더 섹션 -->
-        <header class="mb-10 text-center">
-            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">2024 주거 점유형태 비교</h1>
-            <p class="text-gray-600">서울(수도권 핵심)과 부산(광역시)의 데이터 분석</p>
+<body class="bg-custom-gradient min-h-screen">
+    <div class="max-w-6xl mx-auto px-4 py-12">
+        <!-- 메인 헤더 -->
+        <header class="text-center mb-16">
+            <h1 class="text-4xl font-extrabold text-slate-800 mb-4 leading-tight">
+                2022-2024 서울 vs 부산 <br class="md:hidden"> 주거 실태 및 내 집 마련 분석
+            </h1>
+            <p class="text-slate-500 text-lg">주택 점유형태 추이 및 소득 대비 주택가격(PIR) 분석</p>
+            <div class="mt-6 flex justify-center gap-4">
+                <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">#주거복지</span>
+                <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">#내집마련기간</span>
+            </div>
         </header>
 
-        <!-- 요약 카드 섹션 -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-            <!-- 서울 카드 -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-blue-500">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-bold text-blue-600">서울</h2>
-                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">수도권</span>
+        <!-- 데이터 요약 그리드 (PIR 포함) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <p class="text-slate-400 text-sm mb-1">서울 내 집 마련 기간</p>
+                <h3 class="text-3xl font-bold text-rose-600">14.2년</h3>
+                <p class="text-xs text-slate-500 mt-2">한 푼도 안 쓰고 모아야 하는 시간</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <p class="text-slate-400 text-sm mb-1">부산 내 집 마련 기간</p>
+                <h3 class="text-3xl font-bold text-teal-600">6.3년</h3>
+                <p class="text-xs text-slate-500 mt-2">서울의 절반 수준인 주거 진입 장벽</p>
+            </div>
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+                <p class="text-slate-400 text-sm mb-1">전국 평균 자가비율</p>
+                <h3 class="text-3xl font-bold text-slate-700">58.4%</h3>
+                <p class="text-xs text-slate-500 mt-2">광역시 평균은 약 60.0%</p>
+            </div>
+        </div>
+
+        <!-- PIR 시각화 섹션 (신규) -->
+        <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-100 mb-12">
+            <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                <span class="w-2 h-6 bg-rose-500 rounded-full mr-3"></span>
+                지역별 소득 대비 주택가격(PIR) 비교
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div class="h-[250px]">
+                    <canvas id="pirChart"></canvas>
                 </div>
                 <div class="space-y-4">
-                    <div>
-                        <p class="text-sm text-gray-500">자가점유율</p>
-                        <p class="text-3xl font-bold text-gray-800">44.1%</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
-                            <div class="bg-blue-500 h-2 rounded-full" style="width: 44.1%"></div>
-                        </div>
+                    <div class="p-4 bg-rose-50 rounded-xl border border-rose-100">
+                        <h4 class="font-bold text-rose-700 mb-1 text-sm">서울: 높은 주거 진입 장벽</h4>
+                        <p class="text-xs text-rose-600 leading-relaxed">
+                            서울에서 집을 사려면 평균 소득을 가진 가구가 약 14.2년 동안 소득을 한 푼도 쓰지 않고 모아야 합니다. 이는 부산에 비해 약 2.25배 긴 시간입니다.
+                        </p>
                     </div>
-                    <div>
-                        <p class="text-sm text-gray-500">내 집 마련 기간 (PIR)</p>
-                        <p class="text-xl font-semibold text-red-500">약 14.2년</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 부산 카드 -->
-            <div class="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-teal-500">
-                <div class="flex justify-between items-center mb-4">
-                    <h2 class="text-2xl font-bold text-teal-600">부산</h2>
-                    <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded">광역시</span>
-                </div>
-                <div class="space-y-4">
-                    <div>
-                        <p class="text-sm text-gray-500">자가점유율</p>
-                        <p class="text-3xl font-bold text-gray-800">60.0%</p>
-                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
-                            <div class="bg-teal-500 h-2 rounded-full" style="width: 60%"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <p class="text-sm text-gray-500">내 집 마련 기간 (PIR)</p>
-                        <p class="text-xl font-semibold text-gray-700">약 6.3년</p>
+                    <div class="p-4 bg-teal-50 rounded-xl border border-teal-100">
+                        <h4 class="font-bold text-teal-700 mb-1 text-sm">부산: 상대적으로 낮은 부담</h4>
+                        <p class="text-xs text-teal-600 leading-relaxed">
+                            부산은 PIR이 6.3년으로, 서울보다 훨씬 안정적인 주거 사다리를 제공하고 있음을 알 수 있습니다.
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 차트 섹션 -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
-            <div class="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 text-center">
-                <h3 class="text-lg font-bold mb-4">점유형태 상세 비율 (%)</h3>
-                <canvas id="housingChart" height="200"></canvas>
+        <!-- 추이 분석 섹션: 자가 및 임차비율 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-100">
+                <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                    <span class="w-2 h-6 bg-blue-500 rounded-full mr-3"></span>
+                    연도별 자가비율 변화 추이 (%)
+                </h2>
+                <div class="h-[300px]">
+                    <canvas id="ownTimeSeriesChart"></canvas>
+                </div>
             </div>
-            <div class="bg-white rounded-2xl shadow-lg p-6">
-                <h3 class="text-lg font-bold mb-4">서울 임대 형태</h3>
-                <canvas id="seoulRentChart"></canvas>
-                <p class="text-xs text-center text-gray-400 mt-4">*최근 월세화 현상 가속화 반영</p>
+
+            <div class="bg-white p-8 rounded-3xl shadow-md border border-slate-100">
+                <h2 class="text-xl font-bold text-slate-800 mb-6 flex items-center">
+                    <span class="w-2 h-6 bg-amber-500 rounded-full mr-3"></span>
+                    연도별 임차비율 변화 추이 (%)
+                </h2>
+                <div class="h-[300px]">
+                    <canvas id="rentTimeSeriesChart"></canvas>
+                </div>
             </div>
         </div>
 
-        <!-- 시사점 섹션 -->
-        <div class="bg-gray-800 text-white rounded-2xl p-8 shadow-xl">
-            <h3 class="text-xl font-bold mb-6 flex items-center">
-                <svg class="w-6 h-6 mr-2 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                주요 시사점 요약
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div>
-                    <h4 class="font-bold text-blue-300 mb-2">양극화된 주거 구조</h4>
-                    <p class="text-sm text-gray-300 leading-relaxed">서울은 임차 중심의 구조가 고착화되고 있으며, 부산은 상대적으로 자가 점유가 안정적입니다.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-blue-300 mb-2">주거비 부담 격차</h4>
-                    <p class="text-sm text-gray-300 leading-relaxed">서울의 PIR은 부산의 약 2.2배로, 수도권 거주자의 자산 형성 난이도가 매우 높습니다.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-blue-300 mb-2">세대적 특징</h4>
-                    <p class="text-sm text-gray-300 leading-relaxed">서울은 1인 가구 및 청년층의 유입이 많고, 부산은 자가를 보유한 고령 가구의 비중이 높습니다.</p>
+        <!-- 텍스트 리포트 통합 섹션 -->
+        <div class="bg-slate-900 text-white rounded-3xl p-10 shadow-2xl overflow-hidden relative">
+            <div class="relative z-10">
+                <h2 class="text-2xl font-bold mb-8 border-b border-slate-700 pb-4">종합 분석 및 시사점</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h4 class="text-blue-400 font-bold text-lg mb-3">1. 서울: 임차 중심의 주거 가속화</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            서울은 자가비율이 2022년 44.8%에서 2024년 44.1%로 하락하는 동안, 임차비율은 53.4%를 기록했습니다. 
+                            <strong>PIR 14.2년</strong>이라는 수치는 서울의 주택 가격이 시민들의 소득 수준을 크게 상회하고 있음을 보여주는 핵심 지표입니다.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 class="text-teal-400 font-bold text-lg mb-3">2. 부산: 안정적인 주거 사다리</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-4">
+                            부산은 자가비율이 60%대를 안정적으로 유지하고 있습니다. <strong>PIR 6.3년</strong>은 서울에 비해 주거 자산 형성이 훨씬 수월함을 의미하며, 이는 광역시 차원의 주거 안정성을 잘 보여줍니다.
+                        </p>
+                    </div>
                 </div>
             </div>
+            <!-- 배경 데코레이션 -->
+            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-blue-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-rose-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
-        
-        <footer class="mt-10 text-center text-gray-400 text-sm pb-10">
-            데이터 출처: 2024 국토교통부 주거실태조사 요약본
+
+        <footer class="mt-12 text-center text-slate-400 text-xs">
+            본 자료는 국토교통부 주거실태조사 통계를 바탕으로 구성되었습니다. <br>
+            &copy; 2024 주거 통계 시각화 대시보드.
         </footer>
     </div>
 
     <script>
-        // 메인 비교 차트 (바형)
-        const ctx1 = document.getElementById('housingChart').getContext('2d');
-        new Chart(ctx1, {
+        const years = ['2022년', '2023년', '2024년'];
+
+        // 1. PIR 비교 차트 (Horizontal Bar Chart)
+        const ctxPir = document.getElementById('pirChart').getContext('2d');
+        new Chart(ctxPir, {
             type: 'bar',
             data: {
-                labels: ['자가점유율', '임차비율'],
+                labels: ['서울', '부산'],
+                datasets: [{
+                    label: '내 집 마련 기간 (PIR)',
+                    data: [14.2, 6.3],
+                    backgroundColor: ['#f43f5e', '#14b8a6'],
+                    borderRadius: 10,
+                    barThickness: 40
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { x: { beginAtZero: true, title: { display: true, text: '단위: 년' } } }
+            }
+        });
+
+        // 2. 자가비율 추이
+        const ctxOwn = document.getElementById('ownTimeSeriesChart').getContext('2d');
+        new Chart(ctxOwn, {
+            type: 'line',
+            data: {
+                labels: years,
                 datasets: [
                     {
-                        label: '서울',
-                        data: [44.1, 53.4],
+                        label: '서울 자가',
+                        data: [44.8, 44.3, 44.1],
+                        borderColor: '#3b82f6',
                         backgroundColor: '#3b82f6',
-                        borderRadius: 8
+                        tension: 0.3,
+                        pointRadius: 4
                     },
                     {
-                        label: '부산',
-                        data: [60.0, 36.8],
+                        label: '부산 자가',
+                        data: [59.4, 59.8, 60.0],
+                        borderColor: '#14b8a6',
                         backgroundColor: '#14b8a6',
-                        borderRadius: 8
+                        tension: 0.3,
+                        pointRadius: 4
                     }
                 ]
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 plugins: { legend: { position: 'bottom' } },
-                scales: { y: { beginAtZero: true, max: 100 } }
+                scales: { y: { min: 40, max: 65 } }
             }
         });
 
-        // 서울 임대 형태 차트 (도넛형)
-        const ctx2 = document.getElementById('seoulRentChart').getContext('2d');
-        new Chart(ctx2, {
-            type: 'doughnut',
+        // 3. 임차비율 추이
+        const ctxRent = document.getElementById('rentTimeSeriesChart').getContext('2d');
+        new Chart(ctxRent, {
+            type: 'line',
             data: {
-                labels: ['전세', '월세'],
-                datasets: [{
-                    data: [25.4, 28.0],
-                    backgroundColor: ['#60a5fa', '#f87171'],
-                    hoverOffset: 4
-                }]
+                labels: years,
+                datasets: [
+                    {
+                        label: '서울 임차',
+                        data: [52.8, 53.1, 53.4],
+                        borderColor: '#f43f5e',
+                        backgroundColor: '#f43f5e',
+                        tension: 0.3,
+                        pointRadius: 4
+                    },
+                    {
+                        label: '부산 임차',
+                        data: [37.2, 37.0, 36.8],
+                        borderColor: '#f59e0b',
+                        backgroundColor: '#f59e0b',
+                        tension: 0.3,
+                        pointRadius: 4
+                    }
+                ]
             },
             options: {
                 responsive: true,
-                plugins: { legend: { position: 'bottom' } }
+                maintainAspectRatio: false,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { min: 30, max: 60 } }
             }
         });
     </script>
