@@ -3,148 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>서비스 소개 페이지</title>
+    <title>2024 서울 vs 부산 주거 통계</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
-        body {
-            font-family: 'Noto Sans KR', sans-serif;
-        }
-        .hero-gradient {
-            background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #f6f8fb 0%, #e9effd 100%); }
     </style>
 </head>
-<body class="bg-white text-gray-900">
+<body class="gradient-bg min-h-screen p-4 md:p-8">
+    <div class="max-w-5xl mx-auto">
+        <!-- 헤더 섹션 -->
+        <header class="mb-10 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">2024 주거 점유형태 비교</h1>
+            <p class="text-gray-600">서울(수도권 핵심)과 부산(광역시)의 데이터 분석</p>
+        </header>
 
-    <!-- 네비게이션 바 -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
-                    <i class="fas fa-cube text-white"></i>
+        <!-- 요약 카드 섹션 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            <!-- 서울 카드 -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-blue-500">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-blue-600">서울</h2>
+                    <span class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded">수도권</span>
                 </div>
-                <span class="text-xl font-bold tracking-tight">SOLUTIONS</span>
-            </div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
-                <a href="#" class="hover:text-blue-600 transition">홈</a>
-                <a href="#" class="hover:text-blue-600 transition">서비스 소개</a>
-                <a href="#" class="hover:text-blue-600 transition">포트폴리오</a>
-                <a href="#" class="hover:text-blue-600 transition">문의하기</a>
-            </div>
-            <button class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition shadow-lg shadow-blue-200">
-                시작하기
-            </button>
-        </div>
-    </nav>
-
-    <!-- 메인 히어로 섹션 (캡처1 스타일 참고) -->
-    <section class="hero-gradient pt-32 pb-20 px-6">
-        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">New Update v2.0</span>
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-                    비즈니스의 성장을 돕는 <br>
-                    <span class="text-blue-600">스마트 솔루션</span>
-                </h1>
-                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
-                    업로드하신 이미지의 구조를 바탕으로 설계된 현대적인 레이아웃입니다. <br>
-                    더 효율적인 데이터 관리와 직관적인 사용자 인터페이스를 경험해보세요.
-                </p>
-                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button class="px-8 py-4 bg-gray-900 text-white rounded-xl font-bold hover:bg-black transition flex items-center justify-center">
-                        무료 체험 신청 <i class="fas fa-arrow-right ml-2"></i>
-                    </button>
-                    <button class="px-8 py-4 bg-white border border-gray-200 rounded-xl font-bold hover:bg-gray-50 transition flex items-center justify-center">
-                        기능 자세히 보기
-                    </button>
-                </div>
-            </div>
-            <div class="relative">
-                <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
-                    <div class="bg-gray-800 p-2 flex space-x-1.5">
-                        <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
-                        <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
-                        <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-                    </div>
-                    <div class="bg-white p-6 min-h-[300px] flex items-center justify-center text-gray-300">
-                        <i class="fas fa-chart-line text-9xl text-blue-50 opacity-50"></i>
-                        <!--  -->
-                    </div>
-                </div>
-                <!-- 플로팅 카드 요소 -->
-                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-50 hidden lg:block">
-                    <div class="flex items-center space-x-3">
-                        <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
-                            <i class="fas fa-check"></i>
-                        </div>
-                        <div>
-                            <p class="text-xs text-gray-500">성공률</p>
-                            <p class="text-lg font-bold">99.9%</p>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-sm text-gray-500">자가점유율</p>
+                        <p class="text-3xl font-bold text-gray-800">44.1%</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-blue-500 h-2 rounded-full" style="width: 44.1%"></div>
                         </div>
                     </div>
+                    <div>
+                        <p class="text-sm text-gray-500">내 집 마련 기간 (PIR)</p>
+                        <p class="text-xl font-semibold text-red-500">약 14.2년</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 부산 카드 -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border-t-4 border-teal-500">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-teal-600">부산</h2>
+                    <span class="bg-teal-100 text-teal-800 text-xs font-semibold px-2.5 py-0.5 rounded">광역시</span>
+                </div>
+                <div class="space-y-4">
+                    <div>
+                        <p class="text-sm text-gray-500">자가점유율</p>
+                        <p class="text-3xl font-bold text-gray-800">60.0%</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2 mt-1">
+                            <div class="bg-teal-500 h-2 rounded-full" style="width: 60%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500">내 집 마련 기간 (PIR)</p>
+                        <p class="text-xl font-semibold text-gray-700">약 6.3년</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- 기능 그리드 섹션 (캡처2 스타일 참고) -->
-    <section class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold mb-4">핵심 기능 소개</h2>
-                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+        <!-- 차트 섹션 -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-10">
+            <div class="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 text-center">
+                <h3 class="text-lg font-bold mb-4">점유형태 상세 비율 (%)</h3>
+                <canvas id="housingChart" height="200"></canvas>
             </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- 기능 1 -->
-                <div class="p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition duration-300">
-                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-rocket text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">빠른 실행 속도</h3>
-                    <p class="text-gray-600 leading-relaxed">최적화된 아키텍처를 통해 이전보다 2배 더 빠른 퍼포먼스를 제공합니다.</p>
-                </div>
+            <div class="bg-white rounded-2xl shadow-lg p-6">
+                <h3 class="text-lg font-bold mb-4">서울 임대 형태</h3>
+                <canvas id="seoulRentChart"></canvas>
+                <p class="text-xs text-center text-gray-400 mt-4">*최근 월세화 현상 가속화 반영</p>
+            </div>
+        </div>
 
-                <!-- 기능 2 -->
-                <div class="p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition duration-300">
-                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-shield-alt text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">철저한 보안</h3>
-                    <p class="text-gray-600 leading-relaxed">금융권 수준의 암호화 기술을 적용하여 소중한 데이터를 안전하게 보호합니다.</p>
+        <!-- 시사점 섹션 -->
+        <div class="bg-gray-800 text-white rounded-2xl p-8 shadow-xl">
+            <h3 class="text-xl font-bold mb-6 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                주요 시사점 요약
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h4 class="font-bold text-blue-300 mb-2">양극화된 주거 구조</h4>
+                    <p class="text-sm text-gray-300 leading-relaxed">서울은 임차 중심의 구조가 고착화되고 있으며, 부산은 상대적으로 자가 점유가 안정적입니다.</p>
                 </div>
-
-                <!-- 기능 3 -->
-                <div class="p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition duration-300">
-                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
-                        <i class="fas fa-users text-xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">협업 도구 통합</h3>
-                    <p class="text-gray-600 leading-relaxed">슬랙, 노션 등 다양한 외부 협업 도구와의 완벽한 연동을 지원합니다.</p>
+                <div>
+                    <h4 class="font-bold text-blue-300 mb-2">주거비 부담 격차</h4>
+                    <p class="text-sm text-gray-300 leading-relaxed">서울의 PIR은 부산의 약 2.2배로, 수도권 거주자의 자산 형성 난이도가 매우 높습니다.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-blue-300 mb-2">세대적 특징</h4>
+                    <p class="text-sm text-gray-300 leading-relaxed">서울은 1인 가구 및 청년층의 유입이 많고, 부산은 자가를 보유한 고령 가구의 비중이 높습니다.</p>
                 </div>
             </div>
         </div>
-    </section>
+        
+        <footer class="mt-10 text-center text-gray-400 text-sm pb-10">
+            데이터 출처: 2024 국토교통부 주거실태조사 요약본
+        </footer>
+    </div>
 
-    <!-- 푸터 -->
-    <footer class="bg-gray-50 border-t border-gray-100 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="flex items-center space-x-2 mb-4 md:mb-0">
-                <div class="w-6 h-6 bg-gray-400 rounded flex items-center justify-center">
-                    <i class="fas fa-cube text-white text-xs"></i>
-                </div>
-                <span class="text-gray-500 font-bold">SOLUTIONS</span>
-            </div>
-            <p class="text-sm text-gray-500">© 2024 Your Company. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 md:mt-0 text-gray-400">
-                <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </footer>
+    <script>
+        // 메인 비교 차트 (바형)
+        const ctx1 = document.getElementById('housingChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['자가점유율', '임차비율'],
+                datasets: [
+                    {
+                        label: '서울',
+                        data: [44.1, 53.4],
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 8
+                    },
+                    {
+                        label: '부산',
+                        data: [60.0, 36.8],
+                        backgroundColor: '#14b8a6',
+                        borderRadius: 8
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } },
+                scales: { y: { beginAtZero: true, max: 100 } }
+            }
+        });
 
+        // 서울 임대 형태 차트 (도넛형)
+        const ctx2 = document.getElementById('seoulRentChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'doughnut',
+            data: {
+                labels: ['전세', '월세'],
+                datasets: [{
+                    data: [25.4, 28.0],
+                    backgroundColor: ['#60a5fa', '#f87171'],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+    </script>
 </body>
 </html>
