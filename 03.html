@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 소개 페이지</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8faff 0%, #eef2ff 100%);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- 네비게이션 바 -->
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                    <i class="fas fa-cube text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight">SOLUTIONS</span>
+            </div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-gray-600">
+                <a href="#" class="hover:text-blue-600 transition">홈</a>
+                <a href="#" class="hover:text-blue-600 transition">서비스 소개</a>
+                <a href="#" class="hover:text-blue-600 transition">포트폴리오</a>
+                <a href="#" class="hover:text-blue-600 transition">문의하기</a>
+            </div>
+            <button class="bg-blue-600 text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-blue-700 transition shadow-lg shadow-blue-200">
+                시작하기
+            </button>
+        </div>
+    </nav>
+
+    <!-- 메인 히어로 섹션 (캡처1 스타일 참고) -->
+    <section class="hero-gradient pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">New Update v2.0</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                    비즈니스의 성장을 돕는 <br>
+                    <span class="text-blue-600">스마트 솔루션</span>
+                </h1>
+                <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                    업로드하신 이미지의 구조를 바탕으로 설계된 현대적인 레이아웃입니다. <br>
+                    더 효율적인 데이터 관리와 직관적인 사용자 인터페이스를 경험해보세요.
+                </p>
+                <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button class="px-8 py-4 bg-gray-900 text-white rounded-xl font-bold hover:bg-black transition flex items-center justify-center">
+                        무료 체험 신청 <i class="fas fa-arrow-right ml-2"></i>
+                    </button>
+                    <button class="px-8 py-4 bg-white border border-gray-200 rounded-xl font-bold hover:bg-gray-50 transition flex items-center justify-center">
+                        기능 자세히 보기
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+                    <div class="bg-gray-800 p-2 flex space-x-1.5">
+                        <div class="w-2.5 h-2.5 bg-red-500 rounded-full"></div>
+                        <div class="w-2.5 h-2.5 bg-yellow-500 rounded-full"></div>
+                        <div class="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
+                    </div>
+                    <div class="bg-white p-6 min-h-[300px] flex items-center justify-center text-gray-300">
+                        <i class="fas fa-chart-line text-9xl text-blue-50 opacity-50"></i>
+                        <!--  -->
+                    </div>
+                </div>
+                <!-- 플로팅 카드 요소 -->
+                <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl border border-gray-50 hidden lg:block">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-10 h-10 bg-green-100 text-green-600 rounded-full flex items-center justify-center">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500">성공률</p>
+                            <p class="text-lg font-bold">99.9%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 기능 그리드 섹션 (캡처2 스타일 참고) -->
+    <section class="py-24 px-6 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">핵심 기능 소개</h2>
+                <div class="w-16 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 기능 1 -->
+                <div class="p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition duration-300">
+                    <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-rocket text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">빠른 실행 속도</h3>
+                    <p class="text-gray-600 leading-relaxed">최적화된 아키텍처를 통해 이전보다 2배 더 빠른 퍼포먼스를 제공합니다.</p>
+                </div>
+
+                <!-- 기능 2 -->
+                <div class="p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition duration-300">
+                    <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">철저한 보안</h3>
+                    <p class="text-gray-600 leading-relaxed">금융권 수준의 암호화 기술을 적용하여 소중한 데이터를 안전하게 보호합니다.</p>
+                </div>
+
+                <!-- 기능 3 -->
+                <div class="p-8 rounded-2xl border border-gray-100 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-50 transition duration-300">
+                    <div class="w-12 h-12 bg-orange-50 text-orange-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">협업 도구 통합</h3>
+                    <p class="text-gray-600 leading-relaxed">슬랙, 노션 등 다양한 외부 협업 도구와의 완벽한 연동을 지원합니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-50 border-t border-gray-100 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                <div class="w-6 h-6 bg-gray-400 rounded flex items-center justify-center">
+                    <i class="fas fa-cube text-white text-xs"></i>
+                </div>
+                <span class="text-gray-500 font-bold">SOLUTIONS</span>
+            </div>
+            <p class="text-sm text-gray-500">© 2024 Your Company. All rights reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0 text-gray-400">
+                <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-600 transition"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
