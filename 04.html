@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기계공학 교육 및 기술 트렌드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; background-color: #f8fafc; }
+        .gradient-bg { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); }
+        .card { background: white; border-radius: 1rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); transition: transform 0.2s; }
+        .card:hover { transform: translateY(-5px); }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Header -->
+    <header class="gradient-bg text-white py-12 px-6 text-center shadow-lg">
+        <h1 class="text-3xl md:text-4xl font-bold mb-4">기계공학 교육 및 미래 기술 트렌드</h1>
+        <p class="text-slate-300 max-w-2xl mx-auto">전통적인 기계 설계를 넘어 AI, 로봇, 친환경 에너지와 융합된 첨단 산업의 핵심 데이터를 분석합니다.</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-10">
+        
+        <!-- Summary Stats -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="card p-6 text-center border-l-4 border-blue-500">
+                <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">전체 교육 과정</p>
+                <p class="text-4xl font-bold text-slate-800 mt-2">275개</p>
+            </div>
+            <div class="card p-6 text-center border-l-4 border-emerald-500">
+                <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">융합 학과 비중</p>
+                <p class="text-4xl font-bold text-slate-800 mt-2">15%</p>
+            </div>
+            <div class="card p-6 text-center border-l-4 border-amber-500">
+                <p class="text-sm text-slate-500 uppercase font-bold tracking-wider">영남권 밀집도</p>
+                <p class="text-4xl font-bold text-slate-800 mt-2">35%</p>
+            </div>
+        </section>
+
+        <!-- Tech Roadmaps -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6 flex items-center">
+                <span class="w-2 h-8 bg-blue-600 mr-3 rounded"></span>
+                미래 기계공학 4대 핵심 축
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="card p-5 border border-slate-100">
+                    <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4">🤖</div>
+                    <h3 class="font-bold text-lg mb-2">지능형 로봇</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">자율주행 및 센서 융합 기술을 통한 지능화</p>
+                </div>
+                <div class="card p-5 border border-slate-100">
+                    <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4">⚡</div>
+                    <h3 class="font-bold text-lg mb-2">에너지 전환</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">탄소 중립 및 수소 에너지 최적화 기술</p>
+                </div>
+                <div class="card p-5 border border-slate-100">
+                    <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4">🏭</div>
+                    <h3 class="font-bold text-lg mb-2">스마트 제조</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">AI 융합 및 3D 프린팅 공정 혁신</p>
+                </div>
+                <div class="card p-5 border border-slate-100">
+                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mb-4">🔬</div>
+                    <h3 class="font-bold text-lg mb-2">첨단 소재</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">나노/마이크로 정밀 역학 시스템 구현</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Charts Section -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="card p-6">
+                <h3 class="font-bold text-lg mb-6">학위 과정별 분포</h3>
+                <canvas id="degreeChart" height="250"></canvas>
+            </div>
+            <div class="card p-6">
+                <h3 class="font-bold text-lg mb-6">지역별 분포 (Top Regions)</h3>
+                <canvas id="regionChart" height="250"></canvas>
+            </div>
+        </section>
+
+        <!-- Insights -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold mb-6">주요 분석 인사이트</h2>
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-blue-600 mb-2">디지털 융합 가속화</h4>
+                    <p class="text-slate-700 leading-relaxed">
+                        현재 AI/ICT 키워드를 포함한 융합 학과 비중은 약 15% 수준이지만, 향후 30% 이상으로 확대될 전망입니다. 특히 동강대, 한경국립대 등에서 선제적인 학과 개편이 관찰됩니다.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <h4 class="font-bold text-emerald-600 mb-2">실무 중심 교육 강화</h4>
+                    <p class="text-slate-700 leading-relaxed">
+                        전체 과정 중 약 30%가 전문대학 및 전공심화 과정으로 구성되어 있습니다. 영진전문대의 전문기술석사 과정과 같은 고도화된 실무 교육 모델이 새롭게 등장하고 있습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-8 px-6 text-center text-sm">
+        <p>© 2024 기계공학 기술 로드맵 & 교육 통계 분석 리포트</p>
+        <p class="mt-2">제공된 CSV 및 이미지 데이터를 기반으로 제작되었습니다.</p>
+    </footer>
+
+    <script>
+        // Degree Chart
+        const ctx1 = document.getElementById('degreeChart').getContext('2d');
+        new Chart(ctx1, {
+            type: 'doughnut',
+            data: {
+                labels: ['일반 대학(65%)', '전문대학/심화(30%)', '특수/기타(5%)'],
+                datasets: [{
+                    data: [65, 30, 5],
+                    backgroundColor: ['#3b82f6', '#10b981', '#f59e0b'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'bottom' } }
+            }
+        });
+
+        // Region Chart
+        const ctx2 = document.getElementById('regionChart').getContext('2d');
+        new Chart(ctx2, {
+            type: 'bar',
+            data: {
+                labels: ['영남권', '수도권', '충청권', '호남권', '기타'],
+                datasets: [{
+                    label: '지역별 분포 (%)',
+                    data: [35, 25, 15, 15, 10],
+                    backgroundColor: '#6366f1',
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: { y: { beginAtZero: true, max: 100 } },
+                plugins: { legend: { display: false } }
+            }
+        });
+    </script>
+</body>
+</html>
