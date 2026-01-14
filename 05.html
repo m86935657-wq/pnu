@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-Pop 데몬 헌터스 글로벌 돌풍 분석</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .word-cloud-item:hover { transform: scale(1.1); transition: transform 0.2s ease; cursor: default; }
+        .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div class="min-h-screen p-4 md:p-8">
+        <!-- Header -->
+        <header class="max-w-4xl mx-auto text-center mb-12">
+            <div class="inline-block px-4 py-1 bg-red-100 text-red-600 rounded-full text-sm font-bold mb-4 shadow-sm">
+                문화 소프트파워 리포트 2025
+            </div>
+            <h1 class="text-4xl md:text-5xl font-black mb-4 tracking-tight leading-tight">
+                전 세계를 사로잡은 <br/>
+                <span class="text-blue-600 font-extrabold text-5xl md:text-6xl italic block mt-2">
+                    '케이팝 데몬 헌터스'
+                </span>
+                글로벌 돌풍 분석
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                한국의 전통 '호작도'와 K-POP의 결합이 만들어낸 새로운 문화 현상과 경제적 파급 효과를 분석합니다.
+            </p>
+        </header>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Key Success Metrics -->
+            <div class="md:col-span-2 bg-white rounded-3xl p-8 shadow-xl border border-slate-100 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-6 opacity-5 pointer-events-none">
+                    <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                </div>
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-800">
+                    <svg class="text-yellow-400 fill-yellow-400" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    압도적 성과와 영향력
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 transition-all hover:shadow-md">
+                        <svg class="text-blue-600 mb-2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                        <div class="text-sm text-blue-800 font-bold uppercase tracking-wider">Billboard Global 200</div>
+                        <div class="text-3xl font-black text-blue-900">차트 1위 달성</div>
+                        <p class="text-xs text-blue-700 mt-2">가상 아티스트 최초의 기록적인 성과</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100 transition-all hover:shadow-md">
+                        <svg class="text-red-600 mb-2" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        <div class="text-sm text-red-800 font-bold uppercase tracking-wider">Goods Sold Out</div>
+                        <div class="text-3xl font-black text-red-900">4차 완판 신화</div>
+                        <p class="text-xs text-red-700 mt-2">국립중앙박물관 '까치호랑이' 9월 예약 대기</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 flex items-center gap-4 p-4 bg-slate-900 text-white rounded-2xl">
+                    <svg class="text-yellow-400 animate-pulse-slow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                    <div class="text-sm md:text-base">
+                        <span class="font-bold text-yellow-400">삼성 갤럭시 협업:</span> "세눈박이 까치" 렌즈 디자인 마케팅으로 글로벌 바이럴 확산
+                    </div>
+                </div>
+            </div>
+
+            <!-- Word Cloud Section -->
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-slate-800">
+                    <svg class="text-blue-500" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    대중의 목소리
+                </h2>
+                <p class="text-sm text-slate-500 mb-6 font-medium">댓글 데이터 기반 주요 명사 빈도 분석</p>
+                <div id="wordCloud" class="flex flex-wrap justify-center items-center gap-4 min-h-[250px] p-4 bg-slate-50 rounded-2xl">
+                    <!-- JS will populate this -->
+                </div>
+            </div>
+
+            <!-- Traditional Reinterpretation -->
+            <div class="md:col-span-3 bg-gradient-to-r from-indigo-600 to-blue-700 text-white rounded-3xl p-8 shadow-xl relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <svg class="text-blue-200" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        문화적 독창성: 호작도(虎鵲圖)의 부활
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <p class="text-blue-50 leading-relaxed mb-6 text-lg">
+                                조선 민화 속 <span class="font-bold underline decoration-yellow-400">'호랑이'</span>와 <span class="font-bold underline decoration-yellow-400">'까치'</span>가 현대적 애니메이션 캐릭터로 재탄생했습니다. 
+                                어수룩한 맹수와 당당한 까치를 통해 권력 앞에서도 비굴하지 않은 서민의 기개를 담아내며 세계인의 공감을 샀습니다.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-3 text-sm bg-white/10 p-3 rounded-xl border border-white/10">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                    <span class="font-bold">전통미:</span> 한국 고유의 정체성을 잃지 않는 긍지
+                                </div>
+                                <div class="flex items-center gap-3 text-sm bg-white/10 p-3 rounded-xl border border-white/10">
+                                    <div class="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                                    <span class="font-bold">친근함:</span> "귀여움은 만국 공통" 해외 팬들의 호평
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20">
+                            <p class="italic text-lg mb-4 text-blue-100 font-light">
+                                "우리의 정체성을 잃지 않고 긍지의 자부심으로 승화시킨 점에 찬사를 보냅니다."
+                            </p>
+                            <div class="flex items-center gap-3 border-t border-white/20 pt-4">
+                                <div class="w-10 h-10 bg-blue-400 rounded-full flex items-center justify-center font-bold shadow-lg">U</div>
+                                <div class="text-sm">
+                                    <div class="font-bold">시청자 반응</div>
+                                    <div class="text-blue-300 underline decoration-blue-300/50">YouTube 댓글 중</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Background Decoration -->
+                <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+                <div class="absolute top-10 left-1/2 w-32 h-32 bg-indigo-400/20 rounded-full blur-2xl"></div>
+            </div>
+
+            <!-- Global Perspective Grid -->
+            <div class="md:col-span-3 grid grid-cols-1 sm:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-blue-600 hover:-translate-y-1 transition-transform">
+                    <h3 class="font-bold text-slate-700 mb-2 italic text-sm">인기 비결 #1</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">미국 커뮤니티 내 '새눈박이 까치' 패러디 확산으로 인한 디지털 밈(Meme) 현상</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-indigo-600 hover:-translate-y-1 transition-transform">
+                    <h3 class="font-bold text-slate-700 mb-2 italic text-sm">인기 비결 #2</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">서양에서 오랜만에 등장한 '고퀄리티 한국식 애니메이션'에 대한 신선함</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-md border-l-4 border-red-600 hover:-translate-y-1 transition-transform">
+                    <h3 class="font-bold text-slate-700 mb-2 italic text-sm">인기 비결 #3</h3>
+                    <p class="text-sm text-slate-600 leading-relaxed">K-POP 시스템(음방, 팬덤 문화)을 작품 속에 녹여낸 강력한 과몰입 요소</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="max-w-4xl mx-auto text-center mt-12 text-slate-400 text-sm pb-8">
+            <p>© 2025 K-Culture Insight Report. Based on KBS News and Community Data.</p>
+            <p class="mt-2 font-medium">"가장 한국적인 것이 가장 세계적인 것이다 - 김구 선생님의 정신을 잇는 콘텐츠"</p>
+        </footer>
+    </div>
+
+    <script>
+        // 명사 빈도 데이터
+        const keywords = [
+            { word: "한국", size: "text-4xl", color: "text-blue-600" },
+            { word: "문화", size: "text-3xl", color: "text-red-500" },
+            { word: "박대기", size: "text-3xl", color: "text-gray-700" },
+            { word: "우리", size: "text-2xl", color: "text-indigo-500" },
+            { word: "애니", size: "text-xl", color: "text-purple-500" },
+            { word: "대박", size: "text-xl", color: "text-orange-500" },
+            { word: "김구", size: "text-lg", color: "text-green-600" },
+            { word: "기자", size: "text-lg", color: "text-slate-400" },
+            { word: "전설", size: "text-base", color: "text-blue-400" }
+        ];
+
+        // 워드 클라우드 렌더링
+        const wordCloudContainer = document.getElementById('wordCloud');
+        
+        keywords.forEach(item => {
+            const span = document.createElement('span');
+            span.textContent = item.word;
+            span.className = `${item.size} ${item.color} font-black word-cloud-item`;
+            wordCloudContainer.appendChild(span);
+        });
+    </script>
+</body>
+</html>
