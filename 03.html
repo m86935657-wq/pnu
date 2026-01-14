@@ -10,9 +10,32 @@
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
         body { font-family: 'Noto Sans KR', sans-serif; scroll-behavior: smooth; }
         .bg-custom-gradient { background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); }
+        /* 네비게이션 바 스크롤 효과 */
+        .nav-active { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(8px); border-bottom: 1px solid #e2e8f0; }
     </style>
 </head>
-<body class="bg-custom-gradient min-h-screen">
+<body class="bg-custom-gradient min-h-screen pt-20">
+    <!-- 상단 네비게이션 바 -->
+    <nav id="mainNav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 h-16 flex items-center">
+        <div class="max-w-6xl mx-auto w-full px-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center text-white group-hover:bg-blue-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+                    </svg>
+                </div>
+                <span class="font-bold text-slate-800 text-lg">주거 통계 리포트</span>
+            </a>
+            
+            <a href="index.html" class="bg-slate-800 text-white px-4 py-2 rounded-full text-sm font-medium hover:bg-blue-600 transition-all shadow-md flex items-center gap-2">
+                <span>홈으로 이동</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+            </a>
+        </div>
+    </nav>
+
     <div class="max-w-6xl mx-auto px-4 py-12">
         <!-- 메인 헤더 -->
         <header class="text-center mb-16">
@@ -28,17 +51,17 @@
 
         <!-- 데이터 요약 그리드 (PIR 포함) -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center hover:shadow-md transition-shadow">
                 <p class="text-slate-400 text-sm mb-1">서울 내 집 마련 기간</p>
                 <h3 class="text-3xl font-bold text-rose-600">14.2년</h3>
                 <p class="text-xs text-slate-500 mt-2">한 푼도 안 쓰고 모아야 하는 시간</p>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center hover:shadow-md transition-shadow">
                 <p class="text-slate-400 text-sm mb-1">부산 내 집 마련 기간</p>
                 <h3 class="text-3xl font-bold text-teal-600">6.3년</h3>
                 <p class="text-xs text-slate-500 mt-2">서울의 절반 수준인 주거 진입 장벽</p>
             </div>
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center">
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 text-center hover:shadow-md transition-shadow">
                 <p class="text-slate-400 text-sm mb-1">전국 평균 자가비율</p>
                 <h3 class="text-3xl font-bold text-slate-700">58.4%</h3>
                 <p class="text-xs text-slate-500 mt-2">광역시 평균은 약 60.0%</p>
@@ -122,13 +145,40 @@
             <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-64 h-64 bg-rose-600 rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         </div>
 
-        <footer class="mt-12 text-center text-slate-400 text-xs">
+        <!-- 홈 이동 하단 버튼 -->
+        <div class="mt-12 flex justify-center">
+            <a href="index.html" class="inline-flex items-center gap-2 px-8 py-3 bg-white border border-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-50 transition-all shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                목록(홈)으로 돌아가기
+            </a>
+        </div>
+
+        <footer class="mt-12 text-center text-slate-400 text-xs pb-8">
             본 자료는 국토교통부 주거실태조사 통계를 바탕으로 구성되었습니다. <br>
             &copy; 2024 주거 통계 시각화 대시보드.
         </footer>
     </div>
 
+    <!-- 우측 하단 플로팅 홈 버튼 (편의 기능) -->
+    <a href="index.html" class="fixed bottom-8 right-8 w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center hover:bg-blue-700 hover:scale-110 transition-all z-50" title="홈으로">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+    </a>
+
     <script>
+        // 스크롤 시 네비게이션 스타일 변경 효과
+        window.addEventListener('scroll', function() {
+            const nav = document.getElementById('mainNav');
+            if (window.scrollY > 50) {
+                nav.classList.add('nav-active');
+            } else {
+                nav.classList.remove('nav-active');
+            }
+        });
+
         const years = ['2022년', '2023년', '2024년'];
 
         // 1. PIR 비교 차트 (Horizontal Bar Chart)
