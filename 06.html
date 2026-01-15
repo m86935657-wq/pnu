@@ -20,12 +20,14 @@
     <!-- Header & Navigation -->
     <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <div class="flex items-center gap-2">
+            <a href="index.html" class="flex items-center gap-2 hover:opacity-80 transition">
                 <i class="fa-solid fa-shield-halved text-indigo-600 text-2xl"></i>
                 <span class="font-bold text-xl tracking-tight">AI 통합 리포트 센터</span>
-            </div>
+            </a>
             <div class="hidden md:flex gap-10 font-semibold text-gray-500">
-                <a href="#home" class="hover:text-indigo-600 transition">홈</a>
+                <a href="index.html" class="text-indigo-600 hover:text-indigo-800 transition flex items-center gap-1">
+                    <i class="fa-solid fa-house text-sm"></i> 홈
+                </a>
                 <a href="#security" class="hover:text-indigo-600 transition">보안 실태</a>
                 <a href="#copyright" class="hover:text-indigo-600 transition">저작권 여론</a>
                 <a href="#synthesis" class="hover:text-indigo-600 transition">합성 위협</a>
@@ -164,7 +166,7 @@
                     <span class="text-indigo-600 font-bold tracking-widest text-sm uppercase mb-4 block">Report 03. Synthesis Threat</span>
                     <h2 class="text-4xl font-bold mb-8 leading-tight">창조되는 가짜:<br>딥페이크의 기술적 실체</h2>
                     <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                        딥페이크는 단순한 합성이 아닙니다. 특정 인물의 발음 습관, 미세한 얼굴 근육의 움직임, 음성 파형을 수만 번 학습하여 '데이터화된 인격'로 만들어내는 기술입니다.
+                        딥페이크는 단순한 합성이 아닙니다. 특정 인물의 발음 습관, 미세한 얼굴 근육의 움직임, 음성 파형을 수만 번 학습하여 **'데이터화된 인격'**로 만들어내는 기술입니다.
                     </p>
                     <div class="space-y-6">
                         <div class="flex gap-5 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 card-hover">
@@ -217,6 +219,11 @@
                 인공지능은 우리에게 큰 편리함을 주지만, 그만큼의 책임도 요구합니다.
                 보안 등급제 도입, 데이터 출처 투명화, 그리고 무엇보다 중요한 우리의 디지털 미디어 리터러시가 안전한 미래를 만듭니다.
             </p>
+            <div class="flex flex-col items-center gap-6 mb-12">
+                <a href="index.html" class="px-6 py-2 border border-slate-700 rounded-full hover:bg-slate-800 transition flex items-center gap-2 text-slate-300">
+                    <i class="fa-solid fa-house"></i> 홈으로 돌아가기
+                </a>
+            </div>
             <div class="flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-500 border-t border-slate-800 pt-12">
                 <span>데이터 원천: 3종 전문 보고서 심층 분석</span>
                 <span>분석일: 2026. 01. 15</span>
@@ -274,10 +281,14 @@
         // Smooth Scrolling logic
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                // Only prevent default if it's an internal hash link
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
             });
         });
     </script>
