@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI 기술의 두 얼굴: 통합 분석 리포트</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;600;700&display=swap');
+        body { font-family: 'Pretendard', sans-serif; scroll-behavior: smooth; }
+        .section-padding { padding-top: 100px; padding-bottom: 100px; }
+        .bg-gradient-hero { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%); }
+        .card-hover:hover { transform: translateY(-10px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header & Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-shield-halved text-indigo-600 text-2xl"></i>
+                <span class="font-bold text-xl tracking-tight">AI 통합 리포트 센터</span>
+            </div>
+            <div class="hidden md:flex gap-10 font-semibold text-gray-500">
+                <a href="#home" class="hover:text-indigo-600 transition">홈</a>
+                <a href="#security" class="hover:text-indigo-600 transition">보안 실태</a>
+                <a href="#copyright" class="hover:text-indigo-600 transition">저작권 여론</a>
+                <a href="#synthesis" class="hover:text-indigo-600 transition">합성 위협</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="bg-gradient-hero text-white pt-40 pb-32 px-6 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10 text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-indigo-300 text-sm font-bold mb-8 backdrop-blur-sm border border-white/10">
+                <span class="relative flex h-3 w-3">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-500"></span>
+                </span>
+                2026 AI 기술 보안 및 윤리 종합 진단
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-10 leading-[1.15]">
+                인공지능의 진화,<br><span class="text-indigo-400">보안과 윤리</span>를 묻다
+            </h1>
+            <p class="text-xl text-indigo-100/70 mb-12 max-w-2xl mx-auto leading-relaxed">
+                편리함 이면의 그림자. 스피커 보안 취약점부터 저작권 갈등, 그리고 딥페이크 조작까지. 데이터로 증명된 AI 기술의 명암을 심층 분석합니다.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#security" class="px-10 py-4 bg-indigo-600 text-white rounded-2xl font-bold hover:bg-indigo-700 hover:shadow-lg hover:shadow-indigo-500/30 transition-all">보안 리포트 읽기</a>
+                <a href="#copyright" class="px-10 py-4 bg-white/10 text-white rounded-2xl font-bold hover:bg-white/20 backdrop-blur-md border border-white/20 transition-all">윤리 여론 확인</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: AI Speaker Security (보안 실태) -->
+    <section id="security" class="section-padding bg-slate-900 text-white px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="flex-1 w-full order-2 md:order-1">
+                    <div class="bg-white/5 border border-white/10 p-8 rounded-3xl backdrop-blur-md shadow-2xl">
+                        <h3 class="text-xl font-bold mb-8 text-center text-indigo-300">구조적 보안 취약점 진단 결과</h3>
+                        <div class="h-80">
+                            <canvas id="securityChart"></canvas>
+                        </div>
+                        <div class="mt-8 p-4 bg-black/30 rounded-xl">
+                            <p class="text-xs text-slate-400 leading-relaxed">
+                                <strong>원인 분석:</strong> 국내 제품군은 개발 편의성을 위해 구형 운영체제(OS)와 검증되지 않은 오픈소스 라이브러리를 그대로 사용하는 관행이 확인되었습니다. 반면, 외산 제품군은 보안 업데이트가 자동화되어 취약점이 즉각 보완되는 대조를 보였습니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 order-1 md:order-2">
+                    <span class="text-indigo-400 font-bold tracking-widest text-sm uppercase mb-4 block">Report 01. Device Security</span>
+                    <h2 class="text-4xl font-bold mb-8 leading-tight text-white">가족의 대화가<br>데이터가 될 때</h2>
+                    <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                        AI 스피커는 'Security by Design(설계부터 보안)' 원칙이 결여된 채 출시되고 있습니다. 해커는 스피커의 관리자 권한을 탈취하여 내장 마이크를 활성화하고, 실시간으로 가정 내 대화를 수집할 수 있습니다.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-4 p-5 bg-white/5 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-microphone-slash text-red-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">원격 도청 위험</h4>
+                                <p class="text-sm text-slate-400">네트워크 경유를 통한 악성 코드 주입 시, 물리적 스위치 없는 마이크는 무방비 노출</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-5 bg-white/5 rounded-2xl border border-white/10">
+                            <i class="fa-solid fa-id-card text-indigo-400 mt-1"></i>
+                            <div>
+                                <h4 class="font-bold">사회공학적 피싱</h4>
+                                <p class="text-sm text-slate-400">친숙한 스피커의 목소리를 변조하여 노약자에게 계좌비밀번호 등을 요구하는 사기 시나리오</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Copyright & Public Opinion (저작권 여론) -->
+    <section id="copyright" class="section-padding px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-20">
+                <span class="text-indigo-600 font-bold tracking-widest text-sm uppercase mb-4 block">Report 02. Public Sentiment</span>
+                <h2 class="text-4xl font-bold mb-6">데이터 학습은 창작인가,<br>도용인가?</h2>
+                <p class="text-gray-500 max-w-2xl mx-auto">댓글 150여 건의 빈도 분석 결과, 대중은 '기술적 경이로움'보다 '창작의 정당성'에 더 큰 가치를 두고 있습니다.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-white p-8 rounded-[2rem] shadow-xl border border-gray-100">
+                    <h3 class="text-2xl font-bold mb-6 text-indigo-900 flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line"></i> 주요 키워드 심층 분석
+                    </h3>
+                    <ul class="space-y-6">
+                        <li class="flex justify-between items-center border-b pb-4">
+                            <div>
+                                <span class="block font-bold text-gray-800">법적 가이드라인 마련 (66회)</span>
+                                <span class="text-sm text-gray-500">"지금 당장 적용 가능한 법적 기준"에 대한 갈망</span>
+                            </div>
+                            <span class="text-indigo-600 font-black text-xl">44%</span>
+                        </li>
+                        <li class="flex justify-between items-center border-b pb-4">
+                            <div>
+                                <span class="block font-bold text-gray-800">무단 학습 도덕성 (23회)</span>
+                                <span class="text-sm text-gray-500">'긴빠이(도둑질)', '표절' 등 강한 부정어구 사용</span>
+                            </div>
+                            <span class="text-red-500 font-black text-xl">15%</span>
+                        </li>
+                        <li class="flex justify-between items-center pb-2">
+                            <div>
+                                <span class="block font-bold text-gray-800">창작 주체 논란 (24회)</span>
+                                <span class="text-sm text-gray-500">인간의 고뇌와 노력만이 저작권의 본질이라는 인식</span>
+                            </div>
+                            <span class="text-purple-600 font-black text-xl">16%</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex flex-col justify-center gap-6">
+                    <div class="p-8 bg-indigo-50 rounded-3xl">
+                        <h4 class="font-bold text-indigo-900 mb-4 italic">"산업별 온도 차이"</h4>
+                        <p class="text-gray-600 leading-relaxed">
+                            시각 예술(일러스트) 분야뿐만 아니라 <strong>AI 목소리 복제(AI 커버곡)</strong> 등 음악 분야에서도 저작권 분쟁이 본격화되고 있습니다. 대중은 분야별로 특화된 세밀한 정책 수립을 요구하고 있습니다.
+                        </p>
+                    </div>
+                    <div class="p-8 bg-gray-900 text-white rounded-3xl shadow-lg">
+                        <h4 class="font-bold text-indigo-300 mb-4">대중의 목소리 (시사점)</h4>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            기술적 완성도가 높다고 해서 저작권이 인정되는 것이 아닙니다. <strong>'데이터의 윤리적 출처'</strong>가 확보되지 않은 AI 결과물에 대해 우리 사회는 매우 냉담한 반응을 보이고 있습니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: AI Synthesis (합성 위협) -->
+    <section id="synthesis" class="section-padding px-6 bg-slate-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-16 items-center">
+                <div class="flex-1">
+                    <span class="text-indigo-600 font-bold tracking-widest text-sm uppercase mb-4 block">Report 03. Synthesis Threat</span>
+                    <h2 class="text-4xl font-bold mb-8 leading-tight">창조되는 가짜:<br>딥페이크의 기술적 실체</h2>
+                    <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        딥페이크는 단순한 합성이 아닙니다. 특정 인물의 발음 습관, 미세한 얼굴 근육의 움직임, 음성 파형을 수만 번 학습하여 **'데이터화된 인격'**로 만들어내는 기술입니다.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-5 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 card-hover">
+                            <div class="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center shrink-0">1</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">데이터 학습 (Data Learning)</h4>
+                                <p class="text-sm text-gray-500">특정 인물의 고유 패턴을 수십 시간의 데이터를 통해 내재화</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-5 p-6 bg-white rounded-2xl shadow-sm border border-gray-100 card-hover">
+                            <div class="w-12 h-12 bg-indigo-600 text-white rounded-xl flex items-center justify-center shrink-0">2</div>
+                            <div>
+                                <h4 class="font-bold text-gray-800">인식론적 위기 (Liar's Dividend)</h4>
+                                <p class="text-sm text-gray-500">실제 증거조차 '가짜'라고 주장하며 책임을 회피할 수 있는 사회적 환경 조성</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 w-full">
+                    <div class="bg-indigo-900 rounded-[3.5rem] p-12 text-white shadow-2xl relative overflow-hidden">
+                        <div class="relative z-10">
+                            <h3 class="text-2xl font-bold mb-8 border-b border-white/10 pb-4">고도화된 위협 시나리오</h3>
+                            <div class="space-y-6">
+                                <div class="group">
+                                    <h4 class="text-indigo-300 font-bold mb-2">국가 안보 및 정치 공작</h4>
+                                    <p class="text-sm text-indigo-100/60 leading-relaxed">테러 집단이 국가 지도자의 목소리를 도용하여 핵 승인 등 극단적 군사 명령을 사칭할 가능성 상존</p>
+                                </div>
+                                <div class="group">
+                                    <h4 class="text-indigo-300 font-bold mb-2">디지털 성범죄 및 명예훼손</h4>
+                                    <p class="text-sm text-indigo-100/60 leading-relaxed">연예인 및 주변 지인을 대상으로 한 비인간적인 불법 합성물 제작 및 유포로 인한 인격권 살인</p>
+                                </div>
+                                <div class="group">
+                                    <h4 class="text-indigo-300 font-bold mb-2">사법 시스템 무력화</h4>
+                                    <p class="text-sm text-indigo-100/60 leading-relaxed">영상과 음성 파일의 증거 능력이 하락함에 따라 법적 신뢰 시스템 자체가 붕괴될 위험</p>
+                                </div>
+                            </div>
+                        </div>
+                        <i class="fa-solid fa-microchip absolute -right-16 -bottom-16 text-[18rem] text-white/5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Footer -->
+    <footer class="bg-slate-900 pt-20 pb-12 px-6">
+        <div class="max-w-4xl mx-auto text-center text-white">
+            <h2 class="text-3xl font-bold mb-8">기술과 윤리가 공존하는 미래</h2>
+            <p class="text-slate-400 mb-12 leading-relaxed max-w-2xl mx-auto">
+                인공지능은 우리에게 큰 편리함을 주지만, 그만큼의 책임도 요구합니다.
+                보안 등급제 도입, 데이터 출처 투명화, 그리고 무엇보다 중요한 우리의 디지털 미디어 리터러시가 안전한 미래를 만듭니다.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8 text-sm font-semibold text-slate-500 border-t border-slate-800 pt-12">
+                <span>데이터 원천: 3종 전문 보고서 심층 분석</span>
+                <span>분석일: 2026. 01. 15</span>
+                <span>&copy; AI Ethics & Security Research Hub</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Chart.js - AI Speaker Security Visualization
+        const ctx = document.getElementById('securityChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['국내 A사 (구형OS)', '국내 B사 (취약)', '외산 제품군 (최신)'],
+                datasets: [{
+                    label: '보안 취약점 수',
+                    data: [1280, 320, 150],
+                    backgroundColor: [
+                        '#6366f1',
+                        '#818cf8',
+                        '#475569'
+                    ],
+                    borderRadius: 12,
+                    barThickness: 50
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.raw + '개의 개별 취약점 발견';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                        ticks: { color: 'rgba(255, 255, 255, 0.5)' }
+                    },
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: 'rgba(255, 255, 255, 0.5)' }
+                    }
+                }
+            }
+        });
+
+        // Smooth Scrolling logic
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
